@@ -1,15 +1,7 @@
 import argparse
-import os
-from dotenv import load_dotenv
-from openai import OpenAI
 from agents import Runner
 from core.input_loader import load_dummy_input
 from agent_center.openai_agent import code_explainer_agent
-
-load_dotenv()
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-
-OpenAI.api_key = os.getenv("OPENAI_API_KEY")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
