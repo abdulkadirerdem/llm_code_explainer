@@ -23,18 +23,16 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
-    data = load_dummy_input(args.input)
 
     print(
-        "🧠 Agent’a bir görev verin, örnek:\nAnalyze and explain the most important functions in the file."
+        "🧠 Give a task to the Agent, for example:"
+        "\n- What does this agent do?"
+        "\n- Analyze and explain the most important functions in the file. File path: examples/dummy_input.json"
+        "\n- Scan the examples/dummy_input.json file and comment on the functions."
     )
     user_input = input("📝 Prompt: ")
 
-    # (opsiyonel) Fonksiyonları prompt içine yerleştir
-    context = f"\nFunctions:\n{data['functions']}"
-    full_prompt = user_input + context
-
-    result = Runner.run_sync(code_explainer_agent, full_prompt)
+    result = Runner.run_sync(code_explainer_agent, user_input)
 
     print("\n✅ Final Output:\n")
     print(result.final_output)
