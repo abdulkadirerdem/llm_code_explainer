@@ -1,13 +1,14 @@
-from typing import List, Dict
+from typing import List
 import json
+from agent_center.types import FunctionInfo
 
 
-def format_as_json(file: str, summarized: List[Dict]) -> str:
+def format_as_json(file: str, summarized: List[FunctionInfo]) -> str:
     output = {"file": file, "summarized_functions": summarized}
     return json.dumps(output, indent=2)
 
 
-def format_as_markdown(file: str, summarized: List[Dict]) -> str:
+def format_as_markdown(file: str, summarized: List[FunctionInfo]) -> str:
     md = f"# 📄 Documentation for `{file}`\n\n"
 
     for fn in summarized:

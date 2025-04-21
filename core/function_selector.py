@@ -1,7 +1,8 @@
-from typing import List, Dict
+from typing import List
+from agent_center.types import FunctionInfo
 
 
-def score_function(fn: Dict) -> int:
+def score_function(fn: FunctionInfo) -> int:
     score = 0
 
     # Fan-in (çağrılan yer sayısı) önemlidir
@@ -21,6 +22,6 @@ def score_function(fn: Dict) -> int:
     return score
 
 
-def select_key_functions(functions: List[Dict], top_n: int = 3) -> List[Dict]:
+def select_key_functions(functions: List[FunctionInfo], top_n: int = 3) -> List[FunctionInfo]:
     sorted_fns = sorted(functions, key=score_function, reverse=True)
     return sorted_fns[:top_n]

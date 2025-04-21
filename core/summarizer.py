@@ -2,15 +2,16 @@ import os
 from typing import Dict
 from openai import OpenAI
 from dotenv import load_dotenv
-from agents.prompt_templates import function_summary_prompt
+from agent_center.types import FunctionInfo
+from agent_center.prompt_templates import function_summary_prompt_template
 
 load_dotenv()
 
 client = OpenAI()
 
 
-def summarize_function(fn: Dict) -> str:
-    prompt = function_summary_prompt(fn)
+def summarize_function(fn: FunctionInfo) -> str:
+    prompt = function_summary_prompt_template(fn)
 
     response = client.chat.completions.create(
         model="gpt-4o-mini",
