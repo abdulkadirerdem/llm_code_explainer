@@ -21,3 +21,5 @@ def test_select_key_functions():
 
     top = select_key_functions(functions, top_n=1)
     assert top[0]["name"] == "a"  # fan_in daha yüksek olan "a" seçilmeli
+
+    print(top)
