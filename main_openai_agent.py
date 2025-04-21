@@ -28,3 +28,7 @@ if __name__ == "__main__":
 
     print("\n✅ Final Output:\n")
     print(result.final_output)
+    
+    # Save the output to a file
+    with open("outputs/agent_response.md", "w") as f:
+        f.write(result.final_output)
