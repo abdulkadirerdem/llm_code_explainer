@@ -3,8 +3,9 @@ from agent_center.tools import select_important_functions_tool, summarize_functi
 
 code_explainer_agent = Agent(
     name="CodeExplainerAgent",
+    model="gpt-4o-mini",
     instructions="""
-You are a smart software analysis agent.
+You are a smart software analysis agent, don't use code in your response.
 
 Your task is to understand what the user is asking for and respond appropriately:
 
